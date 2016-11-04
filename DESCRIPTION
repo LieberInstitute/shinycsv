@@ -15,6 +15,7 @@ Suggests:
     BiocStyle,
     derfinderHelper,
     devtools (>= 1.6),
+    DT,
     knitcitations,
     knitr (>= 1.6),
     rmarkdown (>= 0.9.5),
