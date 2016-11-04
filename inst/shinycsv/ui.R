@@ -55,7 +55,7 @@ shinyUI(navbarPage(title = 'shinycsv',
         )
     ),
     tabPanel('Help or feedback',
-        p('Please get in touch with Stephen Semick and Leonardo Collado-Torres.'),
+        p('Please get in touch with Stephen Semick and Leonardo Collado-Torres at ', HTML('https://github.com/LieberInstitute/shinycsv')),
         hr(),
         p('The following information will be useful to them:'),
         verbatimTextOutput('session_info'),
