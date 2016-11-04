@@ -34,6 +34,7 @@ cite_options(hyperlink = 'to.doc', citation_format = 'text', style = 'html')
 bibs <- c(
     BiocStyle = citation('BiocStyle'),
     devtools = citation('devtools'),
+    DT = citation('DT'),
     knitcitations = citation('knitcitations'),
     knitr = citation('knitr')[3],
     R = citation(),
@@ -100,6 +101,7 @@ The `r Githubpkg('LieberInstitute/shinycsv')` package `r citep(bib[['shinycsv']]
 * R `r citep(bib[['R']])`
 * `r Biocpkg('BiocStyle')` `r citep(bib[['BiocStyle']])`
 * `r CRANpkg('devtools')` `r citep(bib[['devtools']])`
+* `r CRANpkg('DT')` `r citep(bib[['DT']])`
 * `r CRANpkg('knitcitations')` `r citep(bib[['knitcitations']])`
 * `r CRANpkg('knitr')` `r citep(bib[['knitr']])`
 * `r CRANpkg('RColorBrewer')` `r citep(bib[['RColorBrewer']])`
