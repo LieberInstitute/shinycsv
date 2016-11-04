@@ -1,0 +1,29 @@
+Package: shinycsv
+Title: Explore a CSV or a Rdata with a data.frame in a shiny application
+Version: 0.99.0
+Date: 2016-11-04
+Authors@R: c(person("Leonardo", "Collado-Torres", role = c("aut", "cre"),
+    email = "leo.collado@libd.org"), person(c("Andrew", "E."), "Jaffe",
+    role = "aut", email = "andrew.jaffe@libd.org"))
+Depends:
+    R (>= 3.3.0)
+Imports:
+    RColorBrewer,
+    vcd
+Suggests:
+    BiocStyle,
+    derfinderHelper,
+    devtools (>= 1.6),
+    knitcitations,
+    knitr (>= 1.6),
+    rmarkdown (>= 0.9.5),
+    testthat
+VignetteBuilder: knitr
+Description: Shiny app for exploring CSV or Rdata files interactively used by
+    the Jaffe lab http://aejaffe.com/.
+License: Artistic-2.0
+Encoding: UTF-8
+LazyData: true
+URL: https://github.com/LieberInstitute/shinycsv
+BugReports: https://github.com/LieberInstitute/shinycsv/issues
+RoxygenNote: 5.0.1
