@@ -14,8 +14,8 @@ test_that('Drop NA', {
 })
 
 test_that('Plot one variable', {
-    expect_equal(plot_summary(mtcars$mpg, 'mpg')$n, 32)
-    expect_equal(plot_summary(as.factor(mtcars$gear), 'gear'), matrix(c(0.7, 1.9, 3.1), ncol = 1))
+    expect_equal(plot_oneway(mtcars$mpg, 'mpg')$n, 32)
+    expect_equal(plot_oneway(as.factor(mtcars$gear), 'gear'), matrix(c(0.7, 1.9, 3.1), ncol = 1))
 })
 
 test_that('Two variables plot', {
