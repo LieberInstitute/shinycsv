@@ -4,7 +4,7 @@
 \alias{read_table}
 \title{Reads a table and does some minor formatting}
 \usage{
-read_table(path)
+read_table(path, name = path)
 }
 \arguments{
 \item{path}{the path to a single file.}

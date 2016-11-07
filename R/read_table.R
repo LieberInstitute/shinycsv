@@ -12,6 +12,7 @@
 #' @export
 #' 
 #' @import rio
+#' @import readxl
 #'
 #'
 #' @examples
@@ -29,6 +30,11 @@ read_table <- function(path, name = path) {
     ## Try to guess format for .Rda/.Rda
     if(grepl('\\.rda$', tolower(name))) {
         df <- import(path, format = 'RData')
+    } else if (grepl('\\.xls$||\\.xlsx$', tolower(name))) {
+        df <- as.data.frame(switch(readxl:::excel_format(name),
+            xls =  readxl:::read_xls(path),
+            xlsx = readxl:::read_xlsx(path)
+        ))
     } else {
         df <- import(path, format = rio:::get_ext(name))
     }

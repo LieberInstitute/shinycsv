@@ -39,6 +39,7 @@ bibs <- c(
     knitr = citation('knitr')[3],
     R = citation(),
     RColorBrewer = citation('RColorBrewer'),
+    readxl = citation('readxl'),
     rio = citation('rio'),
     rmarkdown = citation('rmarkdown'),
     shinycsv = citation('shinycsv'),
@@ -106,8 +107,9 @@ The `r Githubpkg('LieberInstitute/shinycsv')` package `r citep(bib[['shinycsv']]
 * `r CRANpkg('knitcitations')` `r citep(bib[['knitcitations']])`
 * `r CRANpkg('knitr')` `r citep(bib[['knitr']])`
 * `r CRANpkg('RColorBrewer')` `r citep(bib[['RColorBrewer']])`
-* `r CRANpkg('rmarkdown')` `r citep(bib[['rmarkdown']])`
+* `r CRANpkg('readxl')` `r citep(bib[['readxl']])`
 * `r CRANpkg('rio')` `r citep(bib[['rio']])`
+* `r CRANpkg('rmarkdown')` `r citep(bib[['rmarkdown']])`
 * `r CRANpkg('shiny')` `r citep(bib[['shiny']])`
 * `r CRANpkg('testthat')` `r citep(bib[['testthat']])`
 * `r CRANpkg('vcd')` `r citep(bib[['vcd']])`
