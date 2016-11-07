@@ -18,6 +18,7 @@
 #' 
 #' @import RColorBrewer
 #' @import vcd
+#' @importFrom graphics plot boxplot axis title
 #'
 #' @examples
 #' plot_twoway(as.factor(mtcars$gear), mtcars$mpg, xvar = 'gear', yvar = 'mpg')

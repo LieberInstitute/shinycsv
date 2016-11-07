@@ -11,6 +11,8 @@
 #' @export
 #' @author Leonardo Collado-Torres
 #'
+#' @importFrom graphics boxplot hist barplot
+#'
 #' @examples
 #' plot_oneway(mtcars$mpg, 'mpg')
 #' plot_oneway(as.factor(mtcars$gear), 'gear')

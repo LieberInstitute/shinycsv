@@ -8,8 +8,10 @@ Authors@R: c(person("Leonardo", "Collado-Torres", role = c("aut", "cre"),
 Depends:
     R (>= 3.3.0)
 Imports:
+    graphics,
     RColorBrewer,
     shiny,
+    stats,
     vcd
 Suggests:
     BiocStyle,

@@ -10,6 +10,8 @@
 #' @export
 #' @author Leonardo Collado-Torres
 #'
+#' @importFrom stats sd var
+#'
 #' @examples
 #' stat_summary(mtcars$mpg)
 #'
