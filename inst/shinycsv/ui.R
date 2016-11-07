@@ -41,7 +41,7 @@ shinyUI(navbarPage(title = 'shinycsv',
                         hr(),
                         p('All columns of the ', strong('raw data'), ' table are sortable and searchable. Subsetting on the raw data will affect summary statistics in the other tabs.'),
                         hr(),
-                        p('To use this Shiny app you have to upload a file that has a table stored in it. It can be any of the formats described at ', HTML('https://cran.r-project.org/web/packages/rio/vignettes/rio.html'), ' as long as the file only contains one table. For example, a table in the first sheet of a Excel file. If you do not upload any file the example mtcars data set will be shown.'),
+                        p('To use this Shiny app you have to upload a file that has a table stored in it. It can be any of the formats described at ', HTML('<a href="https://cran.r-project.org/web/packages/rio/vignettes/rio.html">the rio vignette</a>'), ' as long as the file only contains one table. For example, a table in the first sheet of a Excel file. If you do not upload any file the example mtcars data set will be shown.'),
                         p('The two-way summary plots can take some time to compute if you have a large data set, that is why you have to click on the ', strong('calculate two-way summary'), ' button to create the plot and update the summary table.')
                     )
                 )
@@ -49,7 +49,7 @@ shinyUI(navbarPage(title = 'shinycsv',
         )
     ),
     tabPanel('Help or feedback',
-        p('Please get in touch with Stephen Semick and Leonardo Collado-Torres at ', HTML('https://github.com/LieberInstitute/shinycsv')),
+        p('Please get in touch with Stephen Semick and Leonardo Collado-Torres at ', HTML('<a href="https://github.com/LieberInstitute/shinycsv">LieberInstitute/shinycsv</a>')),
         hr(),
         p('The following information will be useful to them:'),
         verbatimTextOutput('session_info'),
