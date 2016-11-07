@@ -4,6 +4,8 @@
 #' basically used \link[rio]{import} but can also handle `.rda` files.
 #'
 #' @param path the path to a single file.
+#' @param name the file name including the extension. Might be different
+#' from `path` in the context of \link[shiny]{fileInput}.
 #'
 #' @return A data.frame where the POSIXct and POSIXt variables get
 #' changed to Date variables.

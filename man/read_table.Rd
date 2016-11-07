@@ -8,6 +8,9 @@ read_table(path, name = path)
 }
 \arguments{
 \item{path}{the path to a single file.}
+
+\item{name}{the file name including the extension. Might be different
+from `path` in the context of \link[shiny]{fileInput}.}
 }
 \value{
 A data.frame where the POSIXct and POSIXt variables get
