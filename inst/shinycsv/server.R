@@ -8,42 +8,11 @@ library('shinycsv')
 shinyServer(function(input, output, session) {
       
     selectedData <- reactive ({
-        if(!is.null(input$csv)) {
-            df <- read.csv(input$csv$datapath, check.names = FALSE,
-                na.strings = c('NA', '', 'not filled in', 'Not Filled in',
-                'Unknown'))
-        } else if (!is.null(input$rdata)) {
-            objname <- local({
-               load(input$rdata$datapath)
-               ls()[1]
-            })
-            loadObj <- function(objname) {
-                load(input$rdata$datapath)
-                get(objname)
-            }
-            df <- loadObj(objname) 
-            stopifnot(is.data.frame(df))
+        if(!is.null(input$tablefile)) {
+            df <- read_table(input$tablefile$datapath)
         } else {
             df <- mtcars
         }
-        
-        ## Fix column names
-        colnames(df) <- gsub('#', 'num',
-            gsub('\\.|\\(|\\)', '',
-                gsub('/', '_',
-                    gsub(' |/ |-', '_', tolower(colnames(df)))
-                )
-            )
-        )
-        
-        ## Transform POSIXct to date
-        posix <- sapply(df, function(x) { any(class(x) %in% c('POSIXct',
-            'POSIXt')) })
-        if(any(posix)) {
-            for(i in which(posix)) df[, i] <- as.Date(df[, i])
-        }
-        
-        return(df)
     })
     
     observeEvent(input$palette, {

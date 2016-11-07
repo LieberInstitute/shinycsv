@@ -1,7 +1,7 @@
 Package: shinycsv
 Title: Explore a CSV or a Rdata with a data.frame in a shiny application
-Version: 0.99.0
-Date: 2016-11-04
+Version: 0.99.1
+Date: 2016-11-07
 Authors@R: c(person("Leonardo", "Collado-Torres", role = c("aut", "cre"),
     email = "leo.collado@libd.org"), person(c("Andrew", "E."), "Jaffe",
     role = "aut", email = "andrew.jaffe@libd.org"))
@@ -10,6 +10,7 @@ Depends:
 Imports:
     graphics,
     RColorBrewer,
+    rio,
     shiny,
     stats,
     vcd

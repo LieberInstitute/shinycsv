@@ -2,12 +2,14 @@ shinyUI(navbarPage(title = 'shinycsv',
     tabPanel('Explore data',
         sidebarLayout(
             sidebarPanel(
-                fileInput('csv', 'CSV file to explore',
+                fileInput('tablefile', 'File to explore',
                     accept = c('text/csv', '.csv',
-                    'text/comma-separated-values,text/plain')
-                ),
-                fileInput('rdata', 'Rdata with a data.frame to explore',
-                    accept = c('.RData', '.Rdata', '.rda', '.Rda')
+                    'text/comma-separated-values,text/plain', '.RData',
+                    '.Rdata', '.rda', '.Rda', '.tsv', '.csvy', '.feather',
+                    '.psv', '.fwf', '.rds', '.RData', '.json', '.yml', '.dta',
+                    '.sav', '.por', '.dbf', '.xls', '.xlsx', '.arff', '.R',
+                    '.xml', '.html', '.sas7bdat', '.xpt', '.mtp', '.rec',
+                    '.syd', '.dif', '.ods')
                 ),
                 hr(),
                 downloadButton('downloadData', 'Download table'),
@@ -47,7 +49,7 @@ shinyUI(navbarPage(title = 'shinycsv',
                         hr(),
                         p('All columns of the ', strong('raw data'), ' table are sortable and searchable. Subsetting on the raw data will affect summary statistics in the other tabs.'),
                         hr(),
-                        p('To use this Shiny app you have to upload a csv file that has a header (column names on the first row) or a Rdata file that has a single data.frame object stored in it. If you do not upload any file the example mtcars data set will be shown.'),
+                        p('To use this Shiny app you have to upload a file that has a table stored in it. It can be any of the formats described at ', HTML('https://cran.r-project.org/web/packages/rio/vignettes/rio.html'), ' as long as the file only contains one table. For example, a table in the first sheet of a Excel file. If you do not upload any file the example mtcars data set will be shown.'),
                         p('The two-way summary plots can take some time to compute if you have a large data set, that is why you have to click on the ', strong('calculate two-way summary'), ' button to create the plot and update the summary table.')
                     )
                 )

@@ -39,6 +39,7 @@ bibs <- c(
     knitr = citation('knitr')[3],
     R = citation(),
     RColorBrewer = citation('RColorBrewer'),
+    rio = citation('rio'),
     rmarkdown = citation('rmarkdown'),
     shinycsv = citation('shinycsv'),
     shiny = citation('shiny'),
@@ -78,7 +79,7 @@ To use this package, simply run:
 shinycsv::explore()
 ```
 
-The above command will open a shiny application where you can either upload a [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) file that has the variable names in the first column or a _Rdata_ file created with the `save()` function that has a single data.frame object stored in it. Using a _Rdata_ file allows you to have stronger control regarding the variable types (factor, date, etc) for each column of your table.
+The above command will open a shiny application where you can either upload a [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) file that has the variable names in the first column, a _Rdata_ file created with the `save()` function that has a single data.frame object stored in it, an Excel file with a table in the first sheet, or many other files as described at the [rio vignette](https://cran.r-project.org/web/packages/rio/vignettes/rio.html). Using a _Rdata_ file allows you to have stronger control regarding the variable types (factor, date, etc) for each column of your table.
 
 
 ## Asking for help
@@ -106,6 +107,7 @@ The `r Githubpkg('LieberInstitute/shinycsv')` package `r citep(bib[['shinycsv']]
 * `r CRANpkg('knitr')` `r citep(bib[['knitr']])`
 * `r CRANpkg('RColorBrewer')` `r citep(bib[['RColorBrewer']])`
 * `r CRANpkg('rmarkdown')` `r citep(bib[['rmarkdown']])`
+* `r CRANpkg('rio')` `r citep(bib[['rio']])`
 * `r CRANpkg('shiny')` `r citep(bib[['shiny']])`
 * `r CRANpkg('testthat')` `r citep(bib[['testthat']])`
 * `r CRANpkg('vcd')` `r citep(bib[['vcd']])`
