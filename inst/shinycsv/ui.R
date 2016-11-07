@@ -2,15 +2,7 @@ shinyUI(navbarPage(title = 'shinycsv',
     tabPanel('Explore data',
         sidebarLayout(
             sidebarPanel(
-                fileInput('tablefile', 'File to explore',
-                    accept = c('text/csv', '.csv',
-                    'text/comma-separated-values,text/plain', '.RData',
-                    '.Rdata', '.rda', '.Rda', '.tsv', '.csvy', '.feather',
-                    '.psv', '.fwf', '.rds', '.RData', '.json', '.yml', '.dta',
-                    '.sav', '.por', '.dbf', '.xls', '.xlsx', '.arff', '.R',
-                    '.xml', '.html', '.sas7bdat', '.xpt', '.mtp', '.rec',
-                    '.syd', '.dif', '.ods')
-                ),
+                fileInput('tablefile', 'File to explore'),
                 hr(),
                 downloadButton('downloadData', 'Download table'),
                 width = 2

@@ -9,7 +9,8 @@ shinyServer(function(input, output, session) {
       
     selectedData <- reactive ({
         if(!is.null(input$tablefile)) {
-            df <- read_table(input$tablefile$datapath)
+            print(input$tablefile$datapath)
+            df <- read_table(input$tablefile$datapath, input$tablefile$name)
         } else {
             df <- mtcars
         }

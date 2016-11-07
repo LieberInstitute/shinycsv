@@ -20,17 +20,17 @@
 #' export(iris, 'iris1.csv')
 #' df <- read_table('iris1.csv')
 #'
-read_table <- function(path) {
+read_table <- function(path, name = path) {
     
     ## Check input
     stopifnot(length(path) == 1)
     
     
     ## Try to guess format for .Rda/.Rda
-    if(grepl('\\.rda$', tolower(path))) {
+    if(grepl('\\.rda$', tolower(name))) {
         df <- import(path, format = 'RData')
     } else {
-        df <- import(path)
+        df <- import(path, format = rio:::get_ext(name))
     }
     
     ## Fix column names
