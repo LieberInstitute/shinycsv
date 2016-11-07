@@ -21,15 +21,15 @@ shinyUI(navbarPage(title = 'shinycsv',
                             'Download raw summary'),
                         verbatimTextOutput('raw_summary')
                     ),
-                    tabPanel('Summary',
+                    tabPanel('One variable',
                         uiOutput('summary'),
                         plotOutput('summary_plot'),
                         uiOutput('summary_info')
                     ),
-                    tabPanel('Two-way summary',
+                    tabPanel('Two variables',
                         uiOutput('summary_two_x'),
                         uiOutput('summary_two_y'),
-                        actionButton('goTwo', 'Calculate two-way summary'),
+                        actionButton('goTwo', 'Make two-way plot'),
                         plotOutput('summary_plot_two'),
                         tableOutput('summary_table_two')
                     ),

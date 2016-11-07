@@ -2,7 +2,7 @@
 
 export(dropEmpty_row)
 export(explore)
-export(plot_summary)
+export(plot_oneway)
 export(plot_twoway)
 export(stat_summary)
 export(table_summary)

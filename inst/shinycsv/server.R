@@ -79,7 +79,7 @@ shinyServer(function(input, output, session) {
     
     output$summary_plot <- renderPlot({
         info <- dropEmpty_row ( selectedData() )[input$raw_data_rows_all, input$summary_var]
-        plot_summary(info, input$summary_var, selectedColor())
+        plot_oneway(info, input$summary_var, selectedColor())
     })
     
     output$summary_two_x <- renderUI({

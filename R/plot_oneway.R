@@ -12,11 +12,11 @@
 #' @author Leonardo Collado-Torres
 #'
 #' @examples
-#' plot_summary(mtcars$mpg, 'mpg')
-#' plot_summary(as.factor(mtcars$gear), 'gear')
+#' plot_oneway(mtcars$mpg, 'mpg')
+#' plot_oneway(as.factor(mtcars$gear), 'gear')
 #'
 
-plot_summary <- function(info, title, color = 'lightblue') {
+plot_oneway <- function(info, title, color = 'lightblue') {
     if(class(info) == 'logical') info <- as.factor(info)
         
     if(class(info) == 'numeric') {
