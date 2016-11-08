@@ -14,14 +14,16 @@ test_that('Drop NA', {
     expect_equal(nrow(dropEmpty_row(rbind(mtcars, NA))), nrow(mtcars))
 })
 
-mtcars$mine <- letters[seq_len(nrow(mtcars) / 2)]
+mtcars$mine <- letters[seq_len(nrow(mtcars) / 4)]
 mtcars$int <- seq_len(nrow(mtcars))
+mtcars$log2 <- mtcars$log <- as.logical(mtcars$vs)
+mtcars$log2[nrow(mtcars)] <- NA
 
 test_that('Plot one variable', {
     expect_equal(plot_oneway(mtcars$mpg, 'mpg')$n, 32)
     expect_equal(plot_oneway(as.factor(mtcars$gear), 'gear'), matrix(c(0.7, 1.9, 3.1), ncol = 1))
     expect_equal(class(plot_oneway(mtcars$int, 'int')), 'histogram')
-    expect_equal(nrow(plot_oneway(mtcars$mine, 'mine')), nrow(mtcars) / 2)
+    expect_equal(nrow(plot_oneway(mtcars$mine, 'mine')), nrow(mtcars) / 4)
 })
 
 
@@ -33,6 +35,9 @@ test_that('Two variables plot', {
     expect_equivalent(as.table(plot_twoway(mtcars$mine, as.factor(mtcars$gear), xvar = 'mine', yvar = 'gear')), table('x' = as.factor(mtcars$gear), 'y'= mtcars$mine))
     expect_equal(plot_twoway(mtcars$mine, mtcars$mpg, xvar = 'mine', yvar = 'mpg'), NULL)
     expect_equal(plot_twoway(mtcars$mpg, mtcars$mine, xvar = 'mpg', yvar = 'mine'), NULL)
+    expect_equal(plot_twoway(mtcars$log, mtcars$mpg, xvar = 'log', yvar = 'mpg'), NULL)
+    expect_equal(plot_twoway(mtcars$log2, mtcars$mpg, xvar = 'log2', yvar = 'mpg'), NULL)
+    expect_equal(plot_twoway(mtcars$vs, as.factor(mtcars$gear), xvar = 'vs', yvar = 'mpg'), NULL)
 })
 
 test_that('Plot code', {
