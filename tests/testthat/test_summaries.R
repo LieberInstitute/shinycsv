@@ -37,7 +37,7 @@ test_that('Two variables plot', {
     expect_equal(plot_twoway(mtcars$mpg, mtcars$mine, xvar = 'mpg', yvar = 'mine'), NULL)
     expect_equal(plot_twoway(mtcars$log, mtcars$mpg, xvar = 'log', yvar = 'mpg'), NULL)
     expect_equal(plot_twoway(mtcars$log2, mtcars$mpg, xvar = 'log2', yvar = 'mpg'), NULL)
-    expect_equal(plot_twoway(mtcars$vs, as.factor(mtcars$gear), xvar = 'vs', yvar = 'mpg'), NULL)
+    expect_equal(plot_twoway(mtcars$vs, as.factor(mtcars$gear), xvar = 'vs', yvar = 'mpg'), seq(0.5, 2.5, by = 0.5))
 })
 
 test_that('Plot code', {
