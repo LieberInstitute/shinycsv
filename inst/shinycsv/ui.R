@@ -3,7 +3,7 @@ shinyUI(navbarPage(title = 'shinycsv: explore a table interactively',
         sidebarLayout(
             sidebarPanel(
                 fileInput('tablefile', 'File to explore'),
-                helpText(paste('Limited to', ifelse(Sys.getenv('SHINY_PORT') == ''), '1 GB.', '25 MB.'))
+                helpText(paste('Limited to', ifelse(Sys.getenv('SHINY_PORT') == '', '500 MB.', '25 MB.'))),
                 hr(),
                 downloadButton('downloadData', 'Download table'),
                 helpText('Useful in case you subsetted your data'),

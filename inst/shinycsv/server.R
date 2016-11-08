@@ -5,9 +5,9 @@ library('shiny')
 library('devtools')
 
 if(Sys.getenv('SHINY_PORT') == '') {
-    options(shiny.maxRequestSize = 1024^3)
+    options(shiny.maxRequestSize = 500 * 1024^2)
 } else {
-    options(shiny.maxRequestSize = 25*1024^2)
+    options(shiny.maxRequestSize = 25 * 1024^2)
 }
 
 shinyServer(function(input, output, session) {
