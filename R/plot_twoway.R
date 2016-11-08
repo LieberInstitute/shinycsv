@@ -18,7 +18,7 @@
 #' 
 #' @import RColorBrewer
 #' @import vcd
-#' @importFrom graphics plot boxplot axis title
+#' @importFrom graphics plot boxplot axis
 #'
 #' @examples
 #' plot_twoway(as.factor(mtcars$gear), mtcars$mpg, xvar = 'gear', yvar = 'mpg')
@@ -64,7 +64,6 @@ plot_twoway <- function(x, y, xvar, yvar, color = 'lightblue', pal = 'Set1') {
         if(y_factor) {
             axis(2, at = seq_len(length(y_lab)), labels = y_lab, las = 2)
             axis(1)
-            title('This plot might look better when swapping the axes')
         }
     }
 }

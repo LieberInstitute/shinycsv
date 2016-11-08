@@ -15,7 +15,7 @@ used.}
 \link{explore}.}
 
 \item{selection}{An integer vector of the rows of the \code{fulldata}
-without empty rows to be used in the plot.}
+without empty rows (see \link{dropEmpty_row}) to be used in the plot.}
 
 \item{x}{A variable name in \code{fulldata}.}
 

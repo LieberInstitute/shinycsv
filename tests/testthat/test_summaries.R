@@ -30,6 +30,7 @@ test_that('Two variables plot', {
     expect_error(plot_twoway(as.factor(mtcars$gear), mtcars$mpg, xvar = 'gear', yvar = 'mpg', pal = 'random'))
     expect_equal(plot_twoway(as.factor(mtcars$gear), mtcars$mpg, xvar = 'gear', yvar = 'mpg'), NULL)
     expect_equivalent(as.table(plot_twoway(as.factor(mtcars$gear), as.factor(mtcars$gear), xvar = 'gear', yvar = 'gear')), table('x'= as.factor(mtcars$gear), 'y' = as.factor(mtcars$gear)))
+    expect_equivalent(as.table(plot_twoway(mtcars$mine, as.factor(mtcars$gear), xvar = 'mine', yvar = 'gear')), table('x' = as.factor(mtcars$gear), 'y'= mtcars$mine))
     expect_equal(plot_twoway(mtcars$mine, mtcars$mpg, xvar = 'mine', yvar = 'mpg'), NULL)
     expect_equal(plot_twoway(mtcars$mpg, mtcars$mine, xvar = 'mpg', yvar = 'mine'), NULL)
 })
