@@ -27,13 +27,13 @@ run this yourself to check for any updates on how to cite __shinycsv__.
 
 To cite the __shinycsv__ package in publications use:
 
-Leonardo Collado-Torres and Stephen Semick and Andrew E. Jaffe (2016). shinycsv: Explore a CSV or a Rdata with a data.frame in a shiny application. R package version 0.99.5. https://github.com/LieberInstitute/shinycsv
+Leonardo Collado-Torres and Stephen Semick and Andrew E. Jaffe (2016). shinycsv: Explore a table interactively. R package version 0.99.6. https://github.com/LieberInstitute/shinycsv
 
 @Manual{,
-    title = {shinycsv: Commonly used functions by the Jaffe lab},
+    title = {shinycsv: Explore a table interactively},
     author = {Leonardo Collado-Torres and Stephen Semick and Andrew E. Jaffe},
     year = {2016},
-    note = {R package version 0.99.5},
+    note = {R package version 0.99.6},
     url = {https://github.com/LieberInstitute/shinycsv},
 }
 
