@@ -1,0 +1,172 @@
+---
+title: "shinycsv quick start guide"
+author: "L Collado-Torres"
+date: "`r doc_date()`"
+package: "`r pkg_ver('shinycsv')`"
+output: 
+  BiocStyle::html_document2:
+    toc: true
+    toc_float: true
+    code_folding: show
+vignette: >
+  %\VignetteIndexEntry{shinycsv quick start guide}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}  
+---
+
+Quick start to using to `r Githubpkg('LieberInstitute/shinycsv')`
+================================================================
+
+```{r vignetteSetup, echo=FALSE, message=FALSE, warning = FALSE}
+## Track time spent on making the vignette
+startTime <- Sys.time()
+
+## Bib setup
+library('knitcitations')
+
+## Load knitcitations with a clean bibliography
+cleanbib()
+cite_options(hyperlink = 'to.doc', citation_format = 'text', style = 'html')
+# Note links won't show for now due to the following issue
+# https://github.com/cboettig/knitcitations/issues/63
+
+## Write bibliography information
+bibs <- c(
+    BiocStyle = citation('BiocStyle'),
+    devtools = citation('devtools'),
+    DT = citation('DT'),
+    knitcitations = citation('knitcitations'),
+    knitr = citation('knitr')[3],
+    R = citation(),
+    RColorBrewer = citation('RColorBrewer'),
+    readxl = citation('readxl'),
+    rio = citation('rio'),
+    rmarkdown = citation('rmarkdown'),
+    shinycsv = citation('shinycsv'),
+    shiny = citation('shiny'),
+    testthat = citation('testthat'),
+    vcd = citation('vcd')
+)
+
+write.bibtex(bibs,
+    file = 'quickstartRef.bib')
+bib <- read.bibtex('quickstartRef.bib')
+
+## Assign short names
+names(bib) <- names(bibs)
+```
+
+This package has the code for a [shiny](http://shiny.rstudio.com/) application that allows you to interactively explore a table. The application allows you to subset or sort your data in different ways, explore one variable at a time, or make two-way plots. It also shows you the code to reproduce the figures and can handle many different types of tables thanks to `r citep(bib[['rio']])`. The app also lets you choose which color to use in your plots.
+
+You can view this shiny app deployed at [jhubiostatistics.shinyapps.io/shinycsv](https://jhubiostatistics.shinyapps.io/shinycsv/). If you are interested in the [showcase mode](http://shiny.rstudio.com/articles/display-modes.html), then check out [jhubiostatistics.shinyapps.io/shinycsv-showcase](https://jhubiostatistics.shinyapps.io/shinycsv-showcase/).
+
+
+# Basics
+
+## Install `r Githubpkg('LieberInstitute/shinycsv')`
+
+`R` is an open-source statistical environment which can be easily modified to enhance its functionality via packages. `r Githubpkg('LieberInstitute/shinycsv')` is a `R` package available via GitHub. `R` can be installed on any operating system from [CRAN](https://cran.r-project.org/) after which you can install `r Githubpkg('LieberInstitute/shinycsv')` by using the following commands in your `R` session:
+
+```{r 'installpkg', eval = FALSE}
+## If needed:
+# install.packages('devtools')
+
+library('devtools')
+install_github('LieberInstitute/shinycsv')
+```
+
+## How to use
+
+To use this package, simply run:
+
+```{r 'use', eval = FALSE}
+shinycsv::explore()
+```
+
+The above command will open a shiny application where you can either upload a [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) file that has the variable names in the first column, a _Rdata_ file created with the `save()` function that has a single data.frame object stored in it, an Excel file with a table in the first sheet, or many other files as described at the [rio vignette](https://cran.r-project.org/web/packages/rio/vignettes/rio.html). Using a _Rdata_ file allows you to have stronger control regarding the variable types (factor, date, etc) for each column of your table.
+
+
+## Asking for help
+
+As package developers, we try to explain clearly how to use our packages and in which order to use the functions. But `R` has a steep learning curve so it is critical to learn where to ask for help. For `r Githubpkg('LieberInstitute/shinycsv')` please post issues in GitHub. However, please note that if you want to receive help you should adhere to the [posting guidlines](http://www.bioconductor.org/help/support/posting-guide/). It is particularly critical that you provide a small reproducible example and your session information so package developers can track down the source of the error.
+
+## Citing `r Githubpkg('LieberInstitute/shinycsv')`
+
+We hope that `r Githubpkg('LieberInstitute/shinycsv')` will be useful for your research. Please use the following information to cite the package and the overall approach. Thank you!
+
+```{r 'citation'}
+## Citation info
+citation('shinycsv')
+```
+
+# Reproducibility
+
+The `r Githubpkg('LieberInstitute/shinycsv')` package `r citep(bib[['shinycsv']])` was made possible thanks to:
+
+* R `r citep(bib[['R']])`
+* `r Biocpkg('BiocStyle')` `r citep(bib[['BiocStyle']])`
+* `r CRANpkg('devtools')` `r citep(bib[['devtools']])`
+* `r CRANpkg('DT')` `r citep(bib[['DT']])`
+* `r CRANpkg('knitcitations')` `r citep(bib[['knitcitations']])`
+* `r CRANpkg('knitr')` `r citep(bib[['knitr']])`
+* `r CRANpkg('RColorBrewer')` `r citep(bib[['RColorBrewer']])`
+* `r CRANpkg('readxl')` `r citep(bib[['readxl']])`
+* `r CRANpkg('rio')` `r citep(bib[['rio']])`
+* `r CRANpkg('rmarkdown')` `r citep(bib[['rmarkdown']])`
+* `r CRANpkg('shiny')` `r citep(bib[['shiny']])`
+* `r CRANpkg('testthat')` `r citep(bib[['testthat']])`
+* `r CRANpkg('vcd')` `r citep(bib[['vcd']])`
+
+
+Code for creating the vignette
+
+```{r createVignette, eval=FALSE}
+## Create the vignette
+library('rmarkdown')
+system.time(render('shinycsv-quickstart.Rmd', 'BiocStyle::html_document'))
+
+## Extract the R code
+library('knitr')
+knit('shinycsv-quickstart.Rmd', tangle = TRUE)
+```
+
+```{r createVignette2}
+## Clean up
+file.remove('quickstartRef.bib')
+```
+
+Date the vignette was generated.
+
+```{r reproduce1, echo=FALSE}
+## Date the vignette was generated
+Sys.time()
+```
+
+Wallclock time spent generating the vignette.
+
+```{r reproduce2, echo=FALSE}
+## Processing time in seconds
+totalTime <- diff(c(startTime, Sys.time()))
+round(totalTime, digits=3)
+```
+
+`R` session information.
+
+```{r reproduce3, echo=FALSE}
+## Session info
+library('devtools')
+options(width = 120)
+session_info()
+```
+
+# Bibliography
+
+This vignette was generated using `r Biocpkg('BiocStyle')` `r citep(bib[['BiocStyle']])`
+with `r CRANpkg('knitr')` `r citep(bib[['knitr']])` and `r CRANpkg('rmarkdown')` `r citep(bib[['rmarkdown']])` running behind the scenes.
+
+Citations made with `r CRANpkg('knitcitations')` `r citep(bib[['knitcitations']])`.
+
+```{r vignetteBiblio, results = 'asis', echo = FALSE, warning = FALSE}
+## Print bibliography
+bibliography()
+```
