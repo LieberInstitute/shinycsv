@@ -3,7 +3,9 @@ Status: Travis CI [![Build Status](https://travis-ci.org/LieberInstitute/shinycs
 shinycsv
 ========
 
-This package allows interactive explorations of CSV files or data.frame objects stored in a Rdata file (one at a time).
+This package allows interactive explorations of CSV files, data.frame objects stored in a Rdata file (only one data.frame stored), or other types of table files. You can view this shiny app deployed at [jhubiostatistics.shinyapps.io/shinycsv](https://jhubiostatistics.shinyapps.io/shinycsv/). If you are interested in the [showcase mode](http://shiny.rstudio.com/articles/display-modes.html), then check out [jhubiostatistics.shinyapps.io/shinycsv-showcase](https://jhubiostatistics.shinyapps.io/shinycsv-showcase/).
+
+The vignette for this package is available at [LieberInstitute/shinycsv](http://Lieberinstitute.github.io/shinycsv/).
 
 # Installation instructions
 
@@ -25,13 +27,13 @@ run this yourself to check for any updates on how to cite __shinycsv__.
 
 To cite the __shinycsv__ package in publications use:
 
-Leonardo Collado-Torres and Stephen Semick and Andrew E. Jaffe (2016). shinycsv: Explore a CSV or a Rdata with a data.frame in a shiny application. R package version 0.99.4. https://github.com/LieberInstitute/shinycsv
+Leonardo Collado-Torres and Stephen Semick and Andrew E. Jaffe (2016). shinycsv: Explore a CSV or a Rdata with a data.frame in a shiny application. R package version 0.99.5. https://github.com/LieberInstitute/shinycsv
 
 @Manual{,
     title = {shinycsv: Commonly used functions by the Jaffe lab},
     author = {Leonardo Collado-Torres and Stephen Semick and Andrew E. Jaffe},
     year = {2016},
-    note = {R package version 0.99.4},
+    note = {R package version 0.99.5},
     url = {https://github.com/LieberInstitute/shinycsv},
 }
 

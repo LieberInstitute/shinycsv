@@ -1,4 +1,4 @@
-shinyUI(navbarPage(title = 'shinycsv',
+shinyUI(navbarPage(title = 'shinycsv: explore a table interactively',
     tabPanel('Explore data',
         sidebarLayout(
             sidebarPanel(
@@ -51,18 +51,38 @@ shinyUI(navbarPage(title = 'shinycsv',
                         p('All columns of the ', strong('raw data'), ' table are sortable and searchable. Subsetting on the raw data will affect summary statistics and plots in the other tabs.'),
                         hr(),
                         p('To use this Shiny app you have to upload a file that has a table stored in it. It can be any of the formats described at ', HTML('<a href="https://cran.r-project.org/web/packages/rio/vignettes/rio.html">the rio vignette</a>'), ' as long as the file only contains one table. For example, a table in the first sheet of a Excel file. If you do not upload any file the example mtcars data set will be shown. Files with extensions .fwf or .yml might not work.'),
-                        p('The two-way summary plots can take some time to compute if you have a large data set, that is why you have to click on the ', strong('calculate two-way summary'), ' button to create the plot and update the summary table.')
-                    )
+                        p('The two-way summary plots can take some time to compute if you have a large data set, that is why you have to click on the ', strong('make two-way plot'), ' button to create the plot and update the summary table.'),
+                        hr(),
+                        p('View this app in the default ', HTML('<a href ="https://jhubiostatistics.shinyapps.io/shinycsv/">mode</a>'), p(' or the '), HTML('<a href="https://jhubiostatistics.shinyapps.io/shinycsv-showcase/">showcase mode</a>'), p(" (it's useful for learning shiny)."))
+                    ),
+                    hr(),
+                    p('This shiny application was developed by the data science team at the Lieber Institute for Brain Development and is deployed on the Department of Biostatitics at Johns Hopkins Bloomberg School of Public Health shinyapps account.'),
+                    hr(),
+                    HTML('<a href="http://www.libd.org/">'), img(src='http://aejaffe.com/media/LIBD_logo.jpg', align = 'left', width = '250'), HTML('</a>'),
+                    HTML('<a href="http://www.jhsph.edu/departments/biostatistics/">'), img(src='http://aejaffe.com/media/jhu-bloomberg-logo.jpg', align = 'right', width = '250'), HTML('</a>'),
+                    tags$br(),
+                    tags$br(),
+                    tags$br(),
+                    tags$br()
                 )
             )
         )
     ),
     tabPanel('Help or feedback',
-        p('Please get in touch with Stephen Semick and Leonardo Collado-Torres at ', HTML('<a href="https://github.com/LieberInstitute/shinycsv/issues">LieberInstitute/shinycsv</a>.')),
+        p('Please get in touch with Leonardo Collado-Torres, Stephen Semick and Andrew Jaffe at ', HTML('<a href="https://github.com/LieberInstitute/shinycsv/issues">LieberInstitute/shinycsv</a>.')),
         hr(),
         p('The following information will be useful to them:'),
         verbatimTextOutput('session_info'),
-        p('Also try to include a small reproducible example so they can figure out what went wrong. Thank you!')
+        p('Also try to include a small reproducible example so they can figure out what went wrong. Thank you!'),
+        hr(),
+        p('This shiny application was developed by the data science team at the Lieber Institute for Brain Development and is deployed on the Department of Biostatitics at Johns Hopkins Bloomberg School of Public Health shinyapps account.'),
+        hr(),
+        HTML('<a href="http://www.libd.org/">'), img(src='http://aejaffe.com/media/LIBD_logo.jpg', align = 'left', width = '250'), HTML('</a>'),
+        HTML('<a href="http://www.jhsph.edu/departments/biostatistics/">'), img(src='http://aejaffe.com/media/jhu-bloomberg-logo.jpg', align = 'right', width = '250'), HTML('</a>'),
+        tags$br(),
+        tags$br(),
+        tags$br(),
+        tags$br()
     )
 ))
 
