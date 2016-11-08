@@ -4,12 +4,10 @@
 \alias{explore}
 \title{Explore a CSV file or a data.frame stored in a Rdata file}
 \usage{
-explore(port = 8100L, launch.browser = TRUE)
+explore(...)
 }
 \arguments{
-\item{port}{The TCP port that the application should listen on. Defaults to port 8100. (Taken from \link[shiny]{runApp})}
-
-\item{launch.browser}{If \code{TRUE}, the system's default web browser will be launched automatically after the app is started.}
+\item{...}{Additional arguments passed to \link[shiny]{runApp}.}
 }
 \value{
 The Shiny application is opened in your browser. To stop the 

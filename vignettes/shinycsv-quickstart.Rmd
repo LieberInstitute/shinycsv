@@ -56,6 +56,9 @@ bib <- read.bibtex('quickstartRef.bib')
 names(bib) <- names(bibs)
 ```
 
+This package has the code for a [shiny](http://shiny.rstudio.com/) application that allows you to interactively explore a table. The application allows you to subset or sort your data in different ways, explore one variable at a time, or make two-way plots. It also shows you the code to reproduce the figures and can handle many different types of tables thanks to `r citep(bib[['rio']])`. The app also lets you choose which color to use in your plots.
+
+You can view this shiny app deployed at [jhubiostatistics.shinyapps.io/shinycsv](https://jhubiostatistics.shinyapps.io/shinycsv/). If you are interested in the [showcase mode](http://shiny.rstudio.com/articles/display-modes.html), then check out [jhubiostatistics.shinyapps.io/shinycsv-showcase](https://jhubiostatistics.shinyapps.io/shinycsv-showcase/).
 
 
 # Basics

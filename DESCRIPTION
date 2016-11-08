@@ -1,13 +1,16 @@
 Package: shinycsv
 Title: Explore a CSV or a Rdata with a data.frame in a shiny application
-Version: 0.99.2
-Date: 2016-11-07
+Version: 0.99.4
+Date: 2016-11-08
 Authors@R: c(person("Leonardo", "Collado-Torres", role = c("aut", "cre"),
-    email = "leo.collado@libd.org"), person(c("Andrew", "E."), "Jaffe",
+    email = "leo.collado@libd.org"), person("Stephen", "Semick", role = "aut",
+    email = "Stephen.Semick@libd.org "), person(c("Andrew", "E."), "Jaffe",
     role = "aut", email = "andrew.jaffe@libd.org"))
 Depends:
     R (>= 3.3.0)
 Imports:
+    devtools (>= 1.6),
+    DT,
     graphics,
     RColorBrewer,
     readxl,
@@ -17,9 +20,6 @@ Imports:
     vcd
 Suggests:
     BiocStyle,
-    derfinderHelper,
-    devtools (>= 1.6),
-    DT,
     knitcitations,
     knitr (>= 1.6),
     rmarkdown (>= 0.9.5),

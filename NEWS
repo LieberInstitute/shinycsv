@@ -1,3 +1,12 @@
+CHANGES IN VERSION 0.99.4
+-------------------------
+
+NEW FEATURES
+
+    o Shows the code for making the plots and can handle many different
+        file formats thanks to the CRAN package rio.
+
+
 CHANGES IN VERSION 0.99.0
 -------------------------
 

@@ -3,8 +3,7 @@
 #' Opens the shiny application that allows you to explore a CSV file or a 
 #' data.frame stored in a Rdata file.
 #'
-#' @param port The TCP port that the application should listen on. Defaults to port 8100. (Taken from \link[shiny]{runApp})
-#' @param launch.browser If \code{TRUE}, the system's default web browser will be launched automatically after the app is started.
+#' @param ... Additional arguments passed to \link[shiny]{runApp}.
 #'
 #' @details This function runs the Shiny application including in this package. It is basically a wrapper for \link[shiny]{runApp}.
 #'
@@ -20,17 +19,20 @@
 #' }
 #' @export
 #' @references For more information on what a Shiny app is check http://shiny.rstudio.com/
-#' @importFrom shiny runApp
+#' @rawNamespace import(shiny, except = c("dataTableOutput", "renderDataTable"))
+#' @import DT
+#' @importFrom devtools session_info
+#' @import RColorBrewer
 #'
 #' @author Stephen Semick, Leonardo Collado-Torres
 
-explore <- function(port = 8100L, launch.browser = TRUE) {
+explore <- function(...) {
 
 	## Locate the Shiny code
 	srcdir <- system.file('shinycsv', package = 'shinycsv',
         mustWork = TRUE)
 	
 	## Run the shiny application
-	runApp(appDir = srcdir, port = port, launch.browser = launch.browser)
+	runApp(appDir = srcdir, ...)
 	
 }

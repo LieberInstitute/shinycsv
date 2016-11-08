@@ -22,3 +22,12 @@ test_that('Two variables plot', {
     expect_error(plot_twoway(as.factor(mtcars$gear), mtcars$mpg, xvar = 'gear', yvar = 'mpg', pal = 'random'))
     expect_equal(plot_twoway(as.factor(mtcars$gear), mtcars$mpg, xvar = 'gear', yvar = 'mpg'), NULL)
 })
+
+test_that('Plot code', {
+    expect_error(plot_code('mtcars.csv', mtcars$mpg, x = 'mpg'), selection = 1)
+    expect_error(plot_code('mtcars.csv', mtcars, x = 'wooot'))
+    expect_error(plot_code('mtcars.csv', mtcars, x = 'mpg', selection = 1e4))
+    expect_error(plot_code('mtcars.csv', mtcars, x = 'mpg', y = 'woot'))
+    expect_equal(plot_code('mtcars.csv', mtcars, x = 'mpg', selection = 1:5), "\n## Install shinycsv if needed\ninstall.packages('devtools')\ndevtools::install_github('LieberInstitute/shinycsv')\n\n## Load necessary code\nlibrary('shinycsv')\n\n## Load your data\ndf <- read_table('mtcars.csv')\n\n## If your file is not in the R current working directory (see it with getwd())\n## then you can run:\n# df <- read_table(file.choose())\n## Note that using file.choose() is not completely reproducible, which is why\n## we prefer the first option.\n\n## Drop empty rows\ndf <- dropEmpty_row(df)\n\n## Subset data\ndf <- df[, c(1, 2, 3, 4, 5)]\n\n## One variable plot\nplot_oneway(info = df$mpg, title = 'mpg', color = 'lightblue')\n\n## Reproducibility information\noptions(width = 120)\ndevtools::session_info()\nSys.time()\n\n")
+    expect_equal(plot_code('mtcars.csv', mtcars, x = 'mpg', y = 'vs'), "\n## Install shinycsv if needed\ninstall.packages('devtools')\ndevtools::install_github('LieberInstitute/shinycsv')\n\n## Load necessary code\nlibrary('shinycsv')\n\n## Load your data\ndf <- read_table('mtcars.csv')\n\n## If your file is not in the R current working directory (see it with getwd())\n## then you can run:\n# df <- read_table(file.choose())\n## Note that using file.choose() is not completely reproducible, which is why\n## we prefer the first option.\n\n## Drop empty rows\ndf <- dropEmpty_row(df)\n\n## Two variable plot\nplot_twoway(x = df$mpg, y = df$vs, xvar = 'mpg', yvar = 'vs', color = 'lightblue', pal = 'Set1')\n\n## Reproducibility information\noptions(width = 120)\ndevtools::session_info()\nSys.time()\n\n")
+})
