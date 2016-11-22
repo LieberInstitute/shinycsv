@@ -28,10 +28,10 @@ explore()
 ## Remember to cancel the command to get back to the R console once you are done analyzing your own data.
 }
 }
-\references{
-For more information on what a Shiny app is check http://shiny.rstudio.com/
-}
 \author{
 Stephen Semick, Leonardo Collado-Torres
+}
+\references{
+For more information on what a Shiny app is check http://shiny.rstudio.com/
 }
 
