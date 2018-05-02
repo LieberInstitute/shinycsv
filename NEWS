@@ -1,3 +1,12 @@
+CHANGES IN VERSION 0.99.8
+-------------------------
+
+BUG FIXES
+
+    o Fix image links that were the culprit behind this issue:
+        https://github.com/LieberInstitute/shinycsv/issues/2
+
+
 CHANGES IN VERSION 0.99.4
 -------------------------
 

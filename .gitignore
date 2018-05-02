@@ -1,3 +1,4 @@
 inst/shinycsv/.*Rdata
 inst/shinycsv/deploy_info.R
 inst/shinycsv/rsconnect
+.Rproj.user
