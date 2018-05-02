@@ -15,6 +15,6 @@
 
 dropEmpty_row <- function(input_data){ 
     output_data <- input_data[rowSums(is.na(input_data)) != length(input_data),
-        ]
+        , drop = FALSE]
     return(output_data)
 }

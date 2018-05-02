@@ -26,12 +26,12 @@
 
 
 plot_code <- function(filename, fulldata, selection = seq_len(nrow(fulldata)),
-    x, y, color = 'lightblue', pal = 'Set1') {
+    x, y = NULL, color = 'lightblue', pal = 'Set1') {
     
     stopifnot(is.data.frame(fulldata))
     stopifnot(max(selection) <= nrow(fulldata))
     stopifnot(x %in% colnames(fulldata))
-    if(missing(y)) {
+    if(is.null(y)) {
         plot <- paste0("## One variable plot
 plot_oneway(info = df$", x, ", title = '", x, "', color = '", color, "')
 ")

@@ -3,6 +3,12 @@ library('RColorBrewer')
 library('DT')
 library('shiny')
 library('devtools')
+library('ggedit')
+library('ggplot2')
+library('plotly')
+library('GGally')
+library('shinyjs')
+#library('shinyAce')
 
 if(Sys.getenv('SHINY_PORT') == '') {
     options(shiny.maxRequestSize = 500 * 1024^2)
@@ -12,7 +18,7 @@ if(Sys.getenv('SHINY_PORT') == '') {
 
 shinyServer(function(input, output, session) {
       
-    selectedData <- reactive ({
+    fullData <- reactive({
         if(!is.null(input$tablefile)) {
 #            print(input$tablefile$datapath)
 #            print(input$tablefile$name)
@@ -24,7 +30,12 @@ shinyServer(function(input, output, session) {
             df$am <- as.factor(df$am)
             df$gear <- as.factor(df$gear)
         }
+        df <- dropEmpty_row(df)
         return(df)
+    })
+    
+    selectedData <- reactive({
+        fullData()[input$raw_data_rows_all, , drop = FALSE]
     })
     
     observeEvent(input$palette, {
@@ -40,20 +51,19 @@ shinyServer(function(input, output, session) {
     })
     
     selectInfo <- reactive({
-        dropEmpty_row ( selectedData() )[input$raw_data_rows_all,
-            input$summary_var]
+        selectedData()[, input$summary_var]
     })
     
     ## Raw data
     output$raw_data <- DT::renderDataTable(
-        DT::datatable( dropEmpty_row ( selectedData() ),
+        DT::datatable( dropEmpty_row ( fullData() ),
             style = 'bootstrap', rownames = FALSE, filter = 'top',
             options = list(pageLength = 10) )
     )
     
     ## Raw summary
     output$raw_summary <- renderPrint(
-        summary( dropEmpty_row ( selectedData() )[input$raw_data_rows_all, ] ),
+        summary( selectedData() ),
         width = 80
     )
     
@@ -65,9 +75,7 @@ shinyServer(function(input, output, session) {
     
     ## One variable plot
     output$summary_plot <- renderPlot({
-        info <- dropEmpty_row ( selectedData() )[input$raw_data_rows_all,
-            input$summary_var]
-        plot_oneway(info, input$summary_var, selectedColor())
+        plot_oneway(selectedData()[, input$summary_var], input$summary_var, selectedColor())
     })
     
     ## One variable summary: type of summary depends on the type of variable
@@ -114,10 +122,8 @@ shinyServer(function(input, output, session) {
     output$summary_plot_two <- renderPlot({
         input$goTwo
         
-        x <- isolate(dropEmpty_row ( selectedData() )[input$raw_data_rows_all,
-            input$summary_var_x])
-        y <- isolate(dropEmpty_row ( selectedData() )[input$raw_data_rows_all,
-            input$summary_var_y])
+        x <- isolate(selectedData()[, input$summary_var_x])
+        y <- isolate(selectedData()[, input$summary_var_y])
         isolate(plot_twoway(x, y, input$summary_var_x, input$summary_var_y,
             selectedColor(), input$palette))
     })
@@ -126,10 +132,8 @@ shinyServer(function(input, output, session) {
     output$summary_table_two <- renderPrint({
         input$goTwo
         
-        x <- isolate(dropEmpty_row ( selectedData() )[input$raw_data_rows_all,
-            input$summary_var_x])
-        y <- isolate(dropEmpty_row ( selectedData() )[input$raw_data_rows_all,
-            input$summary_var_y])
+        x <- isolate(selectedData()[, input$summary_var_x])
+        y <- isolate(selectedData()[, input$summary_var_y])
         if(length(x) == 0) return(NULL)
         isolate(table(x, y, useNA = 'ifany'))
     }, width = 60)
@@ -144,7 +148,7 @@ shinyServer(function(input, output, session) {
             y = input$summary_var_y, color = selectedColor(),
             pal = input$palette)
         } else {
-            code <- plot_code(input$tablefile$name, selectedData(),
+            code <- plot_code(input$tablefile$name, fullData(),
             selection = input$raw_data_rows_all, x = input$summary_var_x,
             y = input$summary_var_y, color = selectedColor(),
             pal = input$palette)
@@ -152,13 +156,102 @@ shinyServer(function(input, output, session) {
         cat(code)
     })
     
+    
+    ## Testing area
+    output$summary_two_col <- renderUI({
+        selectInput('summary_var_col', 'Variable to use for coloring (if possible)',
+            c('', sort(colnames(selectedData()))) )
+    })
+    
+   #
+   #  plot_pairs <- reactiveVal()
+   #
+   #  observe({
+   #      input$goTwo
+   #
+   #      plot_data <- isolate(selectedData()[, c(input$summary_var_x, input$summary_var_y, input$summary_var_col)])
+   #      if(length(plot_data) != 0) {
+   #          p <- isolate(if(input$summary_var_col == '') ggpairs(plot_data, columns = 1:2) else ggpairs(plot_data, columns = 1:2, aes_(colour = as.name(input$summary_var_col))))
+   #          plot_pairs(p)
+   #      } else {
+   #          plot_pairs(ggmatrix(list(ggplot()), nrow = 2, ncol = 2))
+   #      }
+   #  })
+   #
+   # outGGedit <- callModule(ggEdit, 'ggEditOut', obj = reactive(list(p1 = plot_pairs()[1, 2], p2 = plot_pairs()[2, 1])), showDefaults = TRUE)
+   
+   
+   
+
+    plot_pairs <- reactive({
+        input$goTwo
+        
+        if(length(input$summary_var_col) != 0) {
+            plot_data <- isolate(if(input$summary_var_col == '') selectedData()[, c(input$summary_var_x, input$summary_var_y)] else selectedData()[, c(input$summary_var_x, input$summary_var_y, input$summary_var_col)])
+        } else {
+            plot_data <- NULL
+        }
+#        if(!is.factor(plot_data[, 3])) plot_data[, 3] <- as.factor(plot_data[, 3])
+        if(length(plot_data) == 0) {
+            #ggmatrix(list(ggplot()), nrow = 2, ncol = 2)
+            return(NULL)
+        } else {
+            isolate(if(input$summary_var_col == '') ggpairs(plot_data, columns = 1:2) else ggpairs(plot_data, columns = 1:2, aes_(colour = as.name(input$summary_var_col))))
+        }
+    })
+
+
+
+    observe({
+        input$goTwo
+        p <- isolate(plot_pairs())
+        if(!is.null(p)) {
+            outGGedit <- callModule(ggEdit, 'ggEditOut', obj = reactive(
+                list(
+                    'p1 (1,1): X' = p[1, 1],
+                    'p2 (1,2): X vs Y' = p[1, 2],
+                    'p3 (2,1): Y vs X' = p[2, 1],
+                    'p4 (2,2): Y' = p[2, 2])
+                ), showDefaults = TRUE, session = session)
+        } else {
+            outGGedit <- NULL
+        }
+        shinyjs::disable('SetThemeGlobal')
+
+    })
+    
+
+    
+    
+    output$plot_test <- renderPlot({
+        input$goTwo
+        p <- isolate(plot_pairs())
+        if(!is.null(p)) {
+            return(p)
+        } else{
+            return(NULL)
+        }
+    })
+    
+    output$plot_plotly <- renderPlotly({
+        input$goTwo
+        p <- isolate(plot_pairs())
+        if(!is.null(p)) {
+            return(isolate(ggplotly(p)))
+        } else{
+            return(NULL)
+        }
+    })
+        
+    
    
     ## Download selected data
     output$downloadData <- downloadHandler(
-        filename = function() { paste0('shinycsv_selection_', Sys.time(), '.csv') },
+        filename = function() {
+            paste0('shinycsv_selection_', Sys.time(), '.csv')
+        },
         content = function(file) {
-            current <- dropEmpty_row(selectedData() )[input$raw_data_rows_all, ]
-            write.csv(current, file, row.names = FALSE)
+            write.csv(selectedData(), file, row.names = FALSE)
         }
     )
     
@@ -168,9 +261,8 @@ shinyServer(function(input, output, session) {
             paste0('shinycsv_raw_summary_', Sys.time(), '.csv')
         },
         content = function(file) {
-            write.csv(summary(
-                dropEmpty_row(selectedData())[input$raw_data_rows_all, ] ),
-                file = file, na = '', row.names = FALSE)
+            write.csv(summary(selectedData()), file = file, na = '',
+                row.names = FALSE)
         }
     )
     
