@@ -3,7 +3,7 @@ Title: Explore a table interactively in a shiny application
 Version: 0.99.8
 Date: 2018-05-01
 Authors@R: c(person("Leonardo", "Collado-Torres", role = c("aut", "cre"),
-    email = "leo.collado@libd.org"), person("Stephen", "Semick", role = "aut",
+    email = "lcolladotor@gmail.com"), person("Stephen", "Semick", role = "aut",
     email = "Stephen.Semick@libd.org "), person(c("Andrew", "E."), "Jaffe",
     role = "aut", email = "andrew.jaffe@libd.org"))
 Depends:
