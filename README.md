@@ -2,6 +2,7 @@ Status: Travis CI [![Build Status](https://travis-ci.org/LieberInstitute/shinycs
 
 shinycsv
 ========
+[![DOI](https://zenodo.org/badge/72884509.svg)](https://zenodo.org/badge/latestdoi/72884509)
 
 This package allows interactive explorations of CSV files, data.frame objects stored in a Rdata file (only one data.frame stored), or other types of table files. You can view this shiny app deployed at [libd.shinyapps.io/shinycsv](https://libd.shinyapps.io/shinycsv/). If you are interested in the [showcase mode](http://shiny.rstudio.com/articles/display-modes.html), then check out [libd.shinyapps.io/shinycsv-showcase](https://libd.shinyapps.io/shinycsv-showcase/).
 
