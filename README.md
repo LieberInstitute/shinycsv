@@ -10,7 +10,7 @@ The vignette for this package is available at [LieberInstitute/shinycsv](http://
 
 # Installation instructions
 
-Get R 3.3.x from [CRAN](http://cran.r-project.org/).
+Get the latest R from [CRAN](http://cran.r-project.org/).
 
 ```R
 ## If needed:
