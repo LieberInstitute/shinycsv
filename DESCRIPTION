@@ -1,7 +1,7 @@
 Package: shinycsv
 Title: Explore a table interactively in a shiny application
-Version: 0.99.8
-Date: 2018-05-01
+Version: 0.99.9
+Date: 2020-07-02
 Authors@R: c(person("Leonardo", "Collado-Torres", role = c("aut", "cre"),
     email = "lcolladotor@gmail.com"), person("Stephen", "Semick", role = "aut",
     email = "Stephen.Semick@libd.org "), person(c("Andrew", "E."), "Jaffe",
@@ -27,8 +27,8 @@ Suggests:
 VignetteBuilder: knitr
 Description: Shiny app for exploring a table interactively used by
     the Jaffe lab http://aejaffe.com/. Deployed at
-    https://jhubiostatistics.shinyapps.io/shinycsv/ and
-    https://jhubiostatistics.shinyapps.io/shinycsv-showcase/.
+    https://libd.shinyapps.io/shinycsv/ and
+    https://libd.shinyapps.io/shinycsv-showcase/.
 License: Artistic-2.0
 Encoding: UTF-8
 LazyData: true
