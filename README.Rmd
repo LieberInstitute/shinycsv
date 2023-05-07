@@ -1,0 +1,66 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+    collapse = TRUE,
+    comment = "#>",
+    fig.path = "man/figures/README-",
+    out.width = "100%"
+)
+```
+
+# shinycsv
+
+<!-- badges: start -->
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![Codecov test coverage](https://codecov.io/gh/LieberInstitute/shinycsv/branch/devel/graph/badge.svg)](https://codecov.io/gh/LieberInstitute/shinycsv?branch=devel)
+[![R build status](https://github.com/LieberInstitute/shinycsv/workflows/R-CMD-check-bioc/badge.svg)](https://github.com/LieberInstitute/shinycsv/actions)
+[![GitHub issues](https://img.shields.io/github/issues/LieberInstitute/shinycsv)](https://github.com/LieberInstitute/shinycsv/issues)
+[![GitHub pulls](https://img.shields.io/github/issues-pr/LieberInstitute/shinycsv)](https://github.com/LieberInstitute/shinycsv/pulls)
+[![DOI](https://zenodo.org/badge/72884509.svg)](https://zenodo.org/badge/latestdoi/72884509)
+<!-- badges: end -->
+
+This package allows interactive explorations of CSV files, data.frame objects stored in a Rdata file (only one data.frame stored), or other types of table files. You can view this shiny app deployed at [libd.shinyapps.io/shinycsv](https://libd.shinyapps.io/shinycsv/). If you are interested in the [showcase mode](http://shiny.rstudio.com/articles/display-modes.html), then check out [libd.shinyapps.io/shinycsv-showcase](https://libd.shinyapps.io/shinycsv-showcase/).
+
+The vignette for this package is available at [LieberInstitute/shinycsv](http://Lieberinstitute.github.io/shinycsv/).
+
+## Installation instructions
+
+Get the latest stable `R` release from [CRAN](http://cran.r-project.org/). Then install `shinycsv` from [GitHub](https://github.com/LieberInstitute/shinycsv) with:
+
+```{r 'install_dev', eval = FALSE}
+BiocManager::install("LieberInstitute/shinycsv")
+```
+
+## Citation
+
+Below is the citation output from using `citation('shinycsv')` in R. Please
+run this yourself to check for any updates on how to cite __shinycsv__.
+
+```{r 'citation', eval = requireNamespace('shinycsv')}
+print(citation("shinycsv"), bibtex = TRUE)
+```
+
+Please note that the `shinycsv` was only made possible thanks to many other R and bioinformatics software authors, which are cited either in the vignettes and/or the paper(s) describing this package.
+
+## Code of Conduct
+
+Please note that the `shinycsv` project is released with a [Contributor Code of Conduct](http://bioconductor.org/about/code-of-conduct/). By contributing to this project, you agree to abide by its terms.
+
+## Development tools
+
+* Continuous code testing is possible thanks to [GitHub actions](https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/)  through `r BiocStyle::CRANpkg('usethis')`, `r BiocStyle::CRANpkg('remotes')`, and `r BiocStyle::CRANpkg('rcmdcheck')` customized to use [Bioconductor's docker containers](https://www.bioconductor.org/help/docker/) and `r BiocStyle::Biocpkg('BiocCheck')`.
+* Code coverage assessment is possible thanks to [codecov](https://codecov.io/gh) and `r BiocStyle::CRANpkg('covr')`.
+* The [documentation website](http://LieberInstitute.github.io/shinycsv) is automatically updated thanks to `r BiocStyle::CRANpkg('pkgdown')`.
+* The code is styled automatically thanks to `r BiocStyle::CRANpkg('styler')`.
+* The documentation is formatted thanks to `r BiocStyle::CRANpkg('devtools')` and `r BiocStyle::CRANpkg('roxygen2')`.
+
+For more details, check the `dev` directory.
+
+This package was developed using `r BiocStyle::Biocpkg('biocthis')`.
+
+
