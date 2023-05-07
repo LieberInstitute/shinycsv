@@ -4,7 +4,7 @@ author: "L Collado-Torres"
 date: "`r doc_date()`"
 package: "`r pkg_ver('shinycsv')`"
 output: 
-  BiocStyle::html_document2:
+  BiocStyle::html_document:
     toc: true
     toc_float: true
     code_folding: show
