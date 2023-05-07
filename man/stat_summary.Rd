@@ -23,4 +23,3 @@ stat_summary(mtcars$mpg)
 \author{
 Leonardo Collado-Torres
 }
-

@@ -15,11 +15,12 @@
 #' @examples
 #' stat_summary(mtcars$mpg)
 #'
- 
 stat_summary <- function(info) {
-    if(class(info) == 'numeric') {
-        c(summary(info), SD = sd(info, na.rm = TRUE),
-            Variance = var(info, na.rm = TRUE))
+    if (class(info) == "numeric") {
+        c(summary(info),
+            SD = sd(info, na.rm = TRUE),
+            Variance = var(info, na.rm = TRUE)
+        )
     } else {
         NULL
     }

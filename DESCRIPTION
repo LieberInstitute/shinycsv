@@ -34,4 +34,4 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/LieberInstitute/shinycsv
 BugReports: https://github.com/LieberInstitute/shinycsv/issues
-RoxygenNote: 5.0.1
+RoxygenNote: 7.2.3

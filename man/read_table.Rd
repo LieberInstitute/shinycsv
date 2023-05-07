@@ -22,12 +22,11 @@ basically used \link[rio]{import} but can also handle `.rda` files.
 }
 \examples{
 
-library('rio')
-export(iris, 'iris1.csv')
-df <- read_table('iris1.csv')
+library("rio")
+export(iris, "iris1.csv")
+df <- read_table("iris1.csv")
 
 }
 \author{
 Leonardo Collado-Torres
 }
-

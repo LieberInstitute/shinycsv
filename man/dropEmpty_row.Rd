@@ -22,4 +22,3 @@ dropEmpty_row(mtcars)
 \author{
 Stephen Semick
 }
-

@@ -4,8 +4,15 @@
 \alias{plot_code}
 \title{Get the code for reproducing a plot}
 \usage{
-plot_code(filename, fulldata, selection = seq_len(nrow(fulldata)), x, y,
-  color = "lightblue", pal = "Set1")
+plot_code(
+  filename,
+  fulldata,
+  selection = seq_len(nrow(fulldata)),
+  x,
+  y,
+  color = "lightblue",
+  pal = "Set1"
+)
 }
 \arguments{
 \item{filename}{The filename (preferably the full path) for the data
@@ -19,7 +26,7 @@ without empty rows (see \link{dropEmpty_row}) to be used in the plot.}
 
 \item{x}{A variable name in \code{fulldata}.}
 
-\item{y}{A variable name in \code{fulldata}. If missing, the code for a 
+\item{y}{A variable name in \code{fulldata}. If missing, the code for a
 one way plot is shown.}
 
 \item{color}{A color to use in the plots that have one single color.}
@@ -35,10 +42,9 @@ This function creates the code in text needed for reproducing a plot
 from \link{explore}.
 }
 \examples{
-cat(plot_code('mtcars.csv', mtcars, x = 'mpg', selection = 1:5))
-cat(plot_code('mtcars.csv', mtcars, x = 'mpg', y = 'vs'))
+cat(plot_code("mtcars.csv", mtcars, x = "mpg", selection = 1:5))
+cat(plot_code("mtcars.csv", mtcars, x = "mpg", y = "vs"))
 }
 \author{
 Leonardo Collado-Torres
 }
-

@@ -28,10 +28,9 @@ This function tries to choose a good plot to show for comparing two
 variables at a time.
 }
 \examples{
-plot_twoway(as.factor(mtcars$gear), mtcars$mpg, xvar = 'gear', yvar = 'mpg')
+plot_twoway(as.factor(mtcars$gear), mtcars$mpg, xvar = "gear", yvar = "mpg")
 
 }
 \author{
 Leonardo Collado-Torres
 }
-

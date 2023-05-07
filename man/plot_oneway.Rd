@@ -20,11 +20,10 @@ A plot.
 Tries to guess the best plot to show for a single variable.
 }
 \examples{
-plot_oneway(mtcars$mpg, 'mpg')
-plot_oneway(as.factor(mtcars$gear), 'gear')
+plot_oneway(mtcars$mpg, "mpg")
+plot_oneway(as.factor(mtcars$gear), "gear")
 
 }
 \author{
 Leonardo Collado-Torres
 }
-

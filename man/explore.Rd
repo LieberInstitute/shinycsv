@@ -10,12 +10,12 @@ explore(...)
 \item{...}{Additional arguments passed to \link[shiny]{runApp}.}
 }
 \value{
-The Shiny application is opened in your browser. To stop the 
-function from running you have to cancel the command using ctrl + c or the 
+The Shiny application is opened in your browser. To stop the
+function from running you have to cancel the command using ctrl + c or the
 equivalent shortcut in your system.
 }
 \description{
-Opens the shiny application that allows you to explore a CSV file or a 
+Opens the shiny application that allows you to explore a CSV file or a
 data.frame stored in a Rdata file.
 }
 \details{
@@ -28,10 +28,9 @@ explore()
 ## Remember to cancel the command to get back to the R console once you are done analyzing your own data.
 }
 }
-\author{
-Stephen Semick, Leonardo Collado-Torres
-}
 \references{
 For more information on what a Shiny app is check http://shiny.rstudio.com/
 }
-
+\author{
+Stephen Semick, Leonardo Collado-Torres
+}

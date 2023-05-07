@@ -1,5 +1,5 @@
 #' Get the code for reproducing a plot
-#' 
+#'
 #' This function creates the code in text needed for reproducing a plot
 #' from \link{explore}.
 #'
@@ -10,28 +10,25 @@
 #' @param selection An integer vector of the rows of the \code{fulldata}
 #' without empty rows (see \link{dropEmpty_row}) to be used in the plot.
 #' @param x A variable name in \code{fulldata}.
-#' @param y A variable name in \code{fulldata}. If missing, the code for a 
+#' @param y A variable name in \code{fulldata}. If missing, the code for a
 #' one way plot is shown.
 #' @inheritParams plot_twoway
 #'
 #' @return A character vector with the code to reproduce a figure.
-#' 
+#'
 #' @author Leonardo Collado-Torres
 #' @export
-#' 
+#'
 #' @examples
-#' cat(plot_code('mtcars.csv', mtcars, x = 'mpg', selection = 1:5))
-#' cat(plot_code('mtcars.csv', mtcars, x = 'mpg', y = 'vs'))
-
-
-
-plot_code <- function(filename, fulldata, selection = seq_len(nrow(fulldata)),
-    x, y, color = 'lightblue', pal = 'Set1') {
-    
+#' cat(plot_code("mtcars.csv", mtcars, x = "mpg", selection = 1:5))
+#' cat(plot_code("mtcars.csv", mtcars, x = "mpg", y = "vs"))
+plot_code <- function(
+        filename, fulldata, selection = seq_len(nrow(fulldata)),
+        x, y, color = "lightblue", pal = "Set1") {
     stopifnot(is.data.frame(fulldata))
     stopifnot(max(selection) <= nrow(fulldata))
     stopifnot(x %in% colnames(fulldata))
-    if(missing(y)) {
+    if (missing(y)) {
         plot <- paste0("## One variable plot
 plot_oneway(info = df$", x, ", title = '", x, "', color = '", color, "')
 ")
@@ -41,20 +38,21 @@ plot_oneway(info = df$", x, ", title = '", x, "', color = '", color, "')
 plot_twoway(x = df$", x, ", y = df$", y, ", xvar = '", x, "', yvar = '", y, "', color = '", color, "', pal = '", pal, "')
 ")
     }
-    
+
     df <- dropEmpty_row(fulldata)
-    
-    if(!identical(seq_len(nrow(df)), selection)) {
+
+    if (!identical(seq_len(nrow(df)), selection)) {
         select <- paste0("## Subset data
-df <- df[, c(", paste(selection, collapse = ', '), ")]
+df <- df[, c(", paste(selection, collapse = ", "), ")]
 
 ")
     } else {
         select <- NULL
     }
-    
-    
-    res <- paste0("
+
+
+    res <- paste0(
+        "
 ## Install shinycsv if needed
 install.packages('devtools')
 devtools::install_github('LieberInstitute/shinycsv')
@@ -75,13 +73,14 @@ df <- read_table('", filename, "')
 df <- dropEmpty_row(df)
 
 ", select, plot,
-"
+        "
 ## Reproducibility information
 options(width = 120)
 devtools::session_info()
 Sys.time()
 
-")
-    
+"
+    )
+
     return(res)
 }
