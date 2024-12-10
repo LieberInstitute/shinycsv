@@ -10,7 +10,7 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 [![Codecov test
 coverage](https://codecov.io/gh/LieberInstitute/shinycsv/branch/devel/graph/badge.svg)](https://codecov.io/gh/LieberInstitute/shinycsv?branch=devel)
 [![R build
-status](https://github.com/LieberInstitute/shinycsv/workflows/R-CMD-check-bioc/badge.svg)](https://github.com/LieberInstitute/shinycsv/actions)
+status](https://github.com/LieberInstitute/shinycsv/actions/workflows/check-bioc.yml/badge.svg)](https://github.com/LieberInstitute/shinycsv/actions/workflows/check-bioc.yml)
 [![GitHub
 issues](https://img.shields.io/github/issues/LieberInstitute/shinycsv)](https://github.com/LieberInstitute/shinycsv/issues)
 [![GitHub
